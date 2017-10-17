@@ -1,0 +1,61 @@
+/*!
+ * Start Bootstrap - Shop Homepage (http://startbootstrap.com/template-overviews/shop-homepage)
+ * Copyright 2013-2017 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-shop-homepage/blob/master/LICENSE)
+ */
+
+body {
+    padding-top: 20px;
+}
+
+@media (min-width: 992px) {
+    body {
+        padding-top: 20px;
+    }
+}
+
+.cardMain {
+    width: 805px;
+    height: 118px;
+    border: 1px solid #f0efef;
+    border-radius: 0.25rem;
+    background-color: #f0efef;
+    text-align: center;
+    margin: auto;
+    margin-top: 40px;
+    margin-bottom: 30px;
+}
+
+footer.py-footer {
+    background-image: url(footer.png);
+    background-color: #00d0ce;
+    height: 196px;
+}
+
+footer.py-footerpink {
+    background-color: #fe51bb;
+    height: 55px;
+}
+
+a.dropdown-item {
+    color: white;
+    font-size: 15px;
+}
+
+.dropdown-item:focus, .dropdown-item:hover {
+  text-decoration: none;
+  background-color: #00d0ce;
+  color: rgb(240, 239, 239);
+}
+
+p.part1footer {
+    color: white;
+    position: absolute;
+    font-size: 15px;
+    line-height: 150%;
+    padding-top: 20px;
+}
+
+p.m-0.text-center.text-white {
+    padding-top: 20px;
+}

@@ -64,7 +64,7 @@
 
 html {
   box-sizing: border-box;
-  font-family: sans-serif;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
   line-height: 1.15;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
@@ -88,7 +88,7 @@ article, aside, dialog, figcaption, figure, footer, header, hgroup, main, nav, s
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
   font-size: 1rem;
   font-weight: normal;
   line-height: 1.5;
@@ -2601,7 +2601,7 @@ tbody.collapse.show {
   padding: 0.25rem 1.5rem;
   clear: both;
   font-weight: normal;
-  color: #212529;
+  color: #00d0ce;
   text-align: inherit;
   white-space: nowrap;
   background: none;
@@ -2609,15 +2609,15 @@ tbody.collapse.show {
 }
 
 .dropdown-item:focus, .dropdown-item:hover {
-  color: #16181b;
+  color: #00d0ce;
   text-decoration: none;
-  background-color: #f8f9fa;
+  background-color: transparent;
 }
 
 .dropdown-item.active, .dropdown-item:active {
-  color: #fff;
+  color: #00d0ce;
   text-decoration: none;
-  background-color: #007bff;
+  background-color: #00d0ce;
 }
 
 .dropdown-item.disabled, .dropdown-item:disabled {
@@ -3165,6 +3165,7 @@ tbody.collapse.show {
 
 .nav-link:focus, .nav-link:hover {
   text-decoration: none;
+  background-color: #00d0ce;
 }
 
 .nav-link.disabled {
@@ -3186,7 +3187,7 @@ tbody.collapse.show {
 }
 
 .nav-tabs .nav-link:focus, .nav-tabs .nav-link:hover {
-  border-color: #e9ecef #e9ecef #ddd;
+  border-color: #00d0ce;
 }
 
 .nav-tabs .nav-link.disabled {
@@ -3251,6 +3252,11 @@ tbody.collapse.show {
   -ms-flex-pack: justify;
       justify-content: space-between;
   padding: 0.5rem 1rem;
+  margin-bottom: 30px;
+  height: 75px;
+  /*background-color: #00d0ce;*/
+  background-image: url(header.png);
+  border-top: 5px solid #fe51bb;
 }
 
 .navbar > .container,
@@ -3287,16 +3293,21 @@ tbody.collapse.show {
   padding-left: 0;
   margin-bottom: 0;
   list-style: none;
+  text-align: center;
 }
 
 .navbar-nav .nav-link {
   padding-right: 0;
   padding-left: 0;
+  color: white;
+  font-size: 15px;
 }
 
 .navbar-nav .dropdown-menu {
   position: static;
   float: none;
+  background-color: #00d0ce;
+  color: white;
 }
 
 .navbar-text {
@@ -4723,7 +4734,7 @@ button.close {
   z-index: 1070;
   display: block;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
   font-style: normal;
   font-weight: normal;
   line-height: 1.5;
@@ -4837,7 +4848,7 @@ button.close {
   display: block;
   max-width: 276px;
   padding: 1px;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
   font-style: normal;
   font-weight: normal;
   line-height: 1.5;
@@ -5014,6 +5025,8 @@ button.close {
 
 .carousel {
   position: relative;
+  width: 1024px;
+  margin: auto;
 }
 
 .carousel-inner {
