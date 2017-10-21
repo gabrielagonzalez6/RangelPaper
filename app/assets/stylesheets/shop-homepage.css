@@ -4,30 +4,112 @@
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-shop-homepage/blob/master/LICENSE)
  */
 
+@font-face {
+    font-family: my car;
+    src: url("/assets/Winter_Calligraphy.ttf") format("truetype");
+}
+
 body {
-    padding-top: 20px;
+    padding-top: 10px;
 }
 
 @media (min-width: 992px) {
     body {
-        padding-top: 20px;
+        padding-top: 10px;
     }
 }
 
-.cardMain {
-    width: 805px;
-    height: 118px;
+
+/* ---- MAIN ---- */
+
+/* Panel */
+.card-main {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+        flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #f0efef;
+    background-clip: border-box;
     border: 1px solid #f0efef;
     border-radius: 0.25rem;
-    background-color: #f0efef;
-    text-align: center;
-    margin: auto;
-    margin-top: 40px;
-    margin-bottom: 30px;
+    width: 805px;
+    /* height: 118px; */
+    margin: auto;  
+    margin-top: 30px; 
+    margin-bottom: 30px; 
 }
 
+p.card-main-title {
+    padding: 0px;
+    margin: auto;
+    text-align: center;
+    font-size: large;
+    color: rgb(161, 161, 162)
+}
+
+/*img.card-main-icon {
+    margin-top: 50px;
+    width: 40px;
+    height: 40px;
+}
+*/
+
+img.card-main-icon {
+    position: absolute;
+    margin-top: 7px;
+    margin-left: 7px;
+    width: 40px;
+    height: 40px;
+}
+
+.backgroud-icon {
+    background: white;
+    background-attachment: fixed;
+    background-clip: content-box;
+    border-radius: 100px;
+    width: 55px;
+    height: 55px;
+    margin-top: 60px;
+}
+
+p.card-main-pink {
+    /*position: relative;*/
+    margin: 0 auto;
+    margin-left: 63px;
+    margin-top: -50px;
+    color: #fe51bb;
+}
+
+p.card-main-gray {
+   /* position: relative;*/
+    margin-top: 2px;
+    margin-left: 63px;
+    margin-bottom: auto;
+    margin-right: 5px;
+    font-size: smaller;
+    color: rgb(161, 161, 162)
+}
+
+/* Carousel */
+img.carousel-img {
+    width: 100%;
+    height: 420px;
+}
+
+
+/* ---- FOOTER ---- */
+
 footer.py-footer {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
     background-image: url(footer.png);
+    background-size: auto;
+    background-repeat-y: no-repeat;
+    background-position: top;
     background-color: #00d0ce;
     height: 196px;
 }
@@ -35,17 +117,6 @@ footer.py-footer {
 footer.py-footerpink {
     background-color: #fe51bb;
     height: 55px;
-}
-
-a.dropdown-item {
-    color: white;
-    font-size: 15px;
-}
-
-.dropdown-item:focus, .dropdown-item:hover {
-  text-decoration: none;
-  background-color: #00d0ce;
-  color: rgb(240, 239, 239);
 }
 
 p.part1footer {
@@ -58,4 +129,63 @@ p.part1footer {
 
 p.m-0.text-center.text-white {
     padding-top: 20px;
+}
+
+
+/* ---- MENU ---- */
+
+a.dropdown-item {
+    color: white;
+    font-size: 15px;
+}
+
+.dropdown-item:focus, .dropdown-item:hover {
+    text-decoration: none;
+    background-color: #00d0ce;
+    color: rgb(240, 239, 239);
+}
+
+
+/* ---- HEADER ---- */
+
+.cardHeader {
+    border: 1px solid #f0efef;
+    border-radius: 0.25rem;
+    background-color: #f0efef;
+    text-align: center;
+    margin: auto;
+    margin-top: 10px;
+    margin-left: 35px;
+    width: 240px;
+    height: 90px;
+}
+
+.panel-body-header {
+    margin: auto;
+    margin-top: 10px;
+    position: absolute;
+}
+
+.mycontent-left {
+    border-right: 1px dashed rgb(161, 161, 162);;
+    margin-left: 10px;
+    padding-right: 15px;
+}
+
+.my-car {
+    color: #fe51bb;
+    font-size: x-large;
+    font-family: my car;
+    width: 120px;
+    left: 105px;
+    top: 15px;
+    position: absolute;
+}
+
+.count {
+    margin-left: 0px;
+    margin-top: 10px;
+    font-size: large;
+    color: rgb(161, 161, 162);
+    font-family: -webkit-body;
 }
