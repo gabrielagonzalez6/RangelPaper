@@ -1,31 +1,41 @@
-<p id="notice"><%= notice %></p>
 
-<h1>Social Networks</h1>
+<div class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="content table-responsive table-full-width">
+            <%if @social_networks == nil  %>
+              <div class="alert alert-warning">
+                  <span><b> Alerta - </b> No existen redes sociales</span>
+              </div>
+            <% else %>
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>Nombre</th>
+                    <th>RS</th>
+                    <th colspan="3">Acción</th>
+                  </tr>
+                </thead>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Type</th>
-      <th>Profile</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @social_networks.each do |social_network| %>
-      <tr>
-        <td><%= social_network.name %></td>
-        <td><%= social_network.type %></td>
-        <td><%= social_network.profile %></td>
-        <td><%= link_to 'Show', social_network %></td>
-        <td><%= link_to 'Edit', edit_social_network_path(social_network) %></td>
-        <td><%= link_to 'Destroy', social_network, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Social Network', new_social_network_path %>
+                <tbody>
+                  <% @social_networks.each do |social_network| %>
+                    <tr>
+                      <td><%= social_network.name %></td>
+                      <td><%= social_network.sn_type %></td>
+                      <td><%= link_to 'Show', social_network, class: "btn btn-info btn-fill" %></td>
+                      <td><%= link_to 'Edit', edit_social_network_path(social_network), class: "btn btn-info btn-fill" %></td>
+                      <td><%= link_to 'Destroy', social_network, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-info btn-fill" %></td>
+                    </tr>
+                  <% end %>
+                </tbody>
+              </table>
+            <% end %>
+            <%= link_to 'New Social Network', new_social_network_path, class: "btn btn-info btn-fill" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

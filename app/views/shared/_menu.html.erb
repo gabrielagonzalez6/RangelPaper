@@ -8,16 +8,14 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav m-auto">
             <li class="nav-item active">
-              <a class="nav-link " href="#">INICIO
-                <span class="sr-only">(current)</span>
-              </a>
+              <%= link_to "INICIO", root_path, class: "nav-link" %>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 INVITACIONES
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <a class="dropdown-item" href="#">INFANTILES</a>
+                <%= link_to "INFANTILES", home_childish_url, class: "dropdown-item" %>
                 <a class="dropdown-item" href="#">ADULTOS</a>
                 <a class="dropdown-item" href="#">BODA</a>
                 <a class="dropdown-item" href="#">OTROS EVENTOS</a>
@@ -39,7 +37,7 @@
               <a class="nav-link" href="#">IMPRIMIBLES</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">CONTACTO</a>
+              <%= link_to "CONTACTO", new_contact_path, class: "nav-link" %>
             </li>
           </ul>
         </div>

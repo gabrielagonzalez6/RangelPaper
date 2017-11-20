@@ -3,7 +3,7 @@ class CreateModels < ActiveRecord::Migration[5.0]
     create_table :models do |t|
       t.string :name
       t.text :description
-      t.references :even_categ, foreign_key: true
+      t.references :category, foreign_key: true
 
       t.timestamps
     end

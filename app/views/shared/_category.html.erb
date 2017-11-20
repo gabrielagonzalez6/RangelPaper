@@ -1,0 +1,21 @@
+<div class="card-category">
+  <div class="card-body">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs" style="padding: 0;">
+          
+          <p class="card-category-title">
+            Categorías
+          </p>
+          <hr class="card-category-divider">
+          <ul class="card-category-list">
+            <% @categories.each do |categories| %>
+                <li><%= categories.name %></li>
+            <% end %>
+          </ul>  
+        
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

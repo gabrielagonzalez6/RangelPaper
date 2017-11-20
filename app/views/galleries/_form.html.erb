@@ -1,32 +1,55 @@
-<%= form_for(gallery) do |f| %>
-  <% if gallery.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(gallery.errors.count, "error") %> prohibited this gallery from being saved:</h2>
+  <div class="content">
+      <%= form_for @gallery, url: gallery_image_path(@gallery), method: :post do |f| %>
+          <% if gallery.errors.any? %>
+            <div id="error_explanation">
+              <div class="alert alert-danger">
+                <span><b> Error - </b> </span>
+                <ul>
+                <% gallery.errors.messages.values.each do |message| %>
+                  <% message.each do |m| %>
+                    <li><%= m %></li>
+                  <% end %>
+                <% end %>
+                </ul>
+              </div> 
+            </div>
+          <% end %>
 
-      <ul>
-      <% gallery.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+          <div class="row">
+              <div class="col-md-6">
+                  <div class="form-group">
+                      <div class="field">
+                        <label>Seleccionar Imágenes <strong class="form-label">*</strong></label>
+                        <%= f.file_field :image, multiple: true %>
+                      </div>
+                  </div>
+              </div>
 
-  <div class="field">
-    <%= f.label :image %>
-    <%= f.text_field :image %>
+              <div class="col-md-6">
+                  <div class="form-group">
+                      <div class="field">
+                        <label>Modelo <strong class="form-label">*</strong></label>
+                        <%= f.collection_select :model_id, Model.all, :id, :name, {:prompt => "- Seleccionar -"}, {:class=>"form-control border-input"} %>
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+          <div class="row">
+              <div class="col-md-6">
+                  <div class="form-group">
+                      <div class="field">
+                        <label>Visibilidad <strong class="form-label">*</strong></label>
+                        <%= f.check_box :status %>
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+          <div class="actions text-center">
+            <%= f.submit "Guardar", class: "btn btn-info btn-fill btn-wd" %>
+          </div>
+
+        <% end %>
   </div>
 
-  <div class="field">
-    <%= f.label :status %>
-    <%= f.check_box :status %>
-  </div>
-
-  <div class="field">
-    <%= f.label :model_id %>
-    <%= f.text_field :model_id %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>

@@ -1,0 +1,67 @@
+<% if notice %>
+  <div class="alert alert-success">
+      <button type="button" aria-hidden="true" class="close text-white" data-dismiss="alert">×</button>
+      <span><b> <%= notice %> </b></span>
+      <br>
+  </div>
+<% elsif flash[:warning] %> 
+  <div class="alert alert-danger">
+      <button type="button" aria-hidden="true" class="close text-white">×</button>
+      <span><b> <%= flash[:warning] %> </b></span>
+      <br>
+  </div>
+<% end %> 
+
+      <div class="form"> 
+        <h5 class="form-title">CONTACTO</h5>
+        <p class="form-p">Completa el siguiente formulario</p>
+        
+        <%= form_for(contact) do |f| %>
+
+          <% if contact.errors.any? %>
+            <div id="error_explanation">
+              <div class="alert alert-danger">
+                <span><b> Error - </b> </span>
+                <ul>
+                <% contact.errors.messages.values.each do |message| %>
+                  <% message.each do |m| %>
+                    <li><%= m %></li>
+                  <% end %>
+                <% end %>
+                </ul>
+              </div> 
+            </div>
+          <% end %>
+
+          <div class="field">
+            <label>Nombre <strong class="form-label">*</strong></label>
+            <%= f.text_field :name, { :class => "form-input", placeholder: "Ej: María Alejandra" } %>
+          </div>
+
+          <div class="field">
+            <label>Apellido <strong class="form-label">*</strong></label>
+            <%= f.text_field :lastname, { :class => "form-input", placeholder: "Ej: Pérez Mora" } %>
+          </div>
+
+          <div class="field">
+            <label>Teléfono <strong class="form-label">*</strong></label>
+            <%= f.text_field :phone, { :class => "form-input", placeholder: "Ej: 0414-1408941 ó +56 634-3462983" } %>
+          </div>
+
+          <div class="field">
+            <label>E-mail <strong class="form-label">*</strong></label>
+            <%= f.text_field :email, { :class => "form-input", placeholder: "Ej: mariaperez@ejemplo.com" } %>
+          </div>
+
+          <div class="field">
+            <label>Mensaje <strong class="form-label">*</strong></label>
+            <%= f.text_area :message, { :class => "form-input", :rows => '3', :style => 'max-width: 600px', placeholder: "Mensaje que desea enviar. Incluya todas sus dudas!" } %>
+          </div>
+          <br>
+
+          <div class="actions text-center">
+            <%= f.submit "Enviar", :class => "btn btn-primary" %>
+          </div>
+        <% end %>
+      </div>
+   

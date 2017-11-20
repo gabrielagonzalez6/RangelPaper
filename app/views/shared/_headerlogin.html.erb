@@ -1,33 +1,40 @@
-<div class="container-fluid">
+<div class="container">
   <div class="row">
     
-    <div class="col-6 text-center" style="margin-bottom: 20px">
-      <%= image_tag("LOGO.jpg", size: "331x125") %>
+    <div class="col-sm text-center" style="margin-bottom: 20px">
+      <%= image_tag("LOGO.jpg", class: "logo-header") %>
     </div>
 
-    <div class=".col-sm-3 text-center">
+    <div class="col-sm text-center">
         <p>
-          <h3 style="color: #fe51bb">!Hola!</h3>
-          <h6 style="color: rgb(161, 161, 162)">Crear Cuenta | Accesar</h6>
+          <h3 style="color: #fe51bb;margin-top: 50px;">!Hola!</h3>
+          <%= link_to home_login_url do %>
+            <h6 style="color: rgb(161, 161, 162)">Crear Cuenta | Accesar</h6>
+          <% end %>
         </p>
     </div>
-    <div class=".col-sm-3 text-center">
-      <div class="cardHeader">
-        <div class="panel panel-default">
-          <div class="panel-body-header">
-            <div class="mycontent-left" >
-              <%= image_tag("icon-car.png", size: "60x60") %> 
+
+    <div class="col-sm">
+      <div class="card-header-car">
+            <div class="card-body" style="padding: 0;">
+              <div class="container">
+                <div class="row">
+                  <div class="col-xs" style="padding: 0;">
+                      <%= image_tag("icon-car.png", class: "card-header-icon") %>
+                  </div>
+                  <div class="mycontent-left"></div>
+                  <div class="col-xs" style="padding: 0;">
+                    <p class="card-header-pink">
+                      Mi carrito:
+                    </p>
+                    <p class="card-header-grey">
+                      (vacío)
+                    </p> 
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="my-car" href="">
-                Mi carrito: 
-                <div class="count" href="">
-                (vacío)
-            </div>
-            </div> 
-               
           </div>
-        </div>
-      </div>
     </div>
   </div>
 

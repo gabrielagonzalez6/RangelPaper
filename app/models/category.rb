@@ -1,6 +1,18 @@
 class Category < ApplicationRecord
-	has_many :even_categs, foreign_key: :category_id, dependent: :destroy
-  	has_many :events, through: :even_categs
+	belongs_to :event
+	has_many :models
+
+  	validates :name,
+			  presence: { message: "Introduzca el nombre" },
+			  format: {with: /\A([A-Za-z0-9áÁéÉíÍóÓúÚñÑ\-\.\,\/\ ]+)\z/, message: "Nombre contiene caracteres inválidos"},
+			  uniqueness: { scope: :name, message: "%{value} ya existe"}
+
+	validates :description,
+			  presence: { message: "Introduzca la descripción" }
+
+   	def to_s
+		name
+	end
 
 
 end

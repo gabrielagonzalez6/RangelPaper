@@ -1,0 +1,126 @@
+<div class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="header">
+              <h4 class="title">Datos de la Categoría</h4>
+          </div>
+
+          <div class="content">
+              <ul class="list-unstyled team-members">
+                <li>
+                    <div class="row">
+                        <div class="col-xs-4">
+                            Pedido
+                            <br />
+                            <span class="text-primary"><small> <%= @order.order  %></small></span>
+                        </div>
+                        <div class="col-xs-4">
+                            Temática
+                            <br />
+                            <span class="text-primary"><small> <%= @order.theme %></small></span>
+                        </div>
+                        <div class="col-xs-4">
+                            Colores a usar
+                            <br />
+                            <span class="text-primary"><small> <%= @order.color %></small></span>
+                        </div>
+                    </div>
+                </li>
+
+                <li>
+                    <div class="row">
+                        <div class="col-xs-4">
+                            Homenajeado
+                            <br />
+                            <span class="text-primary"><small> <%= @order.name %></small></span>
+                        </div>
+                        <div class="col-xs-4">
+                            Edad
+                            <br />
+                            <span class="text-primary"><small> <%= @order.age %></small></span>
+                        </div>
+                        <div class="col-xs-4">
+                            Ciudad
+                            <br />
+                            <span class="text-primary"><small> <%= @order.city %></small></span>
+                        </div>
+                    </div>
+                </li>
+
+                <li>
+                    <div class="row">
+                        <div class="col-xs-4">
+                            Fecha de evento
+                            <br />
+                            <span class="text-primary"><small> <%= @order.date_event  %></small></span>
+                        </div>
+                        <div class="col-xs-4">
+                            Fecha de entrega
+                            <br />
+                            <span class="text-primary"><small> <%= @order.date_order %></small></span>
+                        </div>
+                    </div>
+                </li>
+
+                <li>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            Información adicional
+                            <br />
+                            <span class="text-primary"><small> <%= @order.more_info  %></small></span>
+                        </div>
+                    </div>
+                </li>
+
+                <li>
+                  <br>
+                   <div class="">
+                      <h5 class="title">Datos de Envío</h5>
+                      <br>
+                  </div>
+                    <div class="row">
+                        <div class="col-xs-4">
+                            Nombre y Apellido
+                            <br />
+                            <span class="text-primary"><small> <%= @order.name_shipping %></small></span>
+                        </div>
+                        <div class="col-xs-4">
+                            Cédula
+                            <br />
+                            <span class="text-primary"><small> <%= @order.dni_shipping %></small></span>
+                        </div>
+                        <div class="col-xs-4">
+                            Teléfono
+                            <br />
+                            <span class="text-primary"><small> <%= @order.phone_shipping %></small></span>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            Dirección de envío
+                            <br />
+                            <span class="text-primary"><small> <%= @order.address_shipping %></small></span>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="row">
+                      <div class="col-xs-6">
+                            <%= link_to 'Edit', edit_order_path(@order), class: "btn btn-info btn-fill" %>
+                        </div>
+                        <div class="col-xs-6">
+                            <%= link_to 'Back', orders_path, class: "btn btn-info btn-fill" %>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

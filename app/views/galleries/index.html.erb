@@ -1,8 +1,76 @@
-<p id="notice"><%= notice %></p>
+<div class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="header">
+            <h4 class="title">Galeria</h4>
+            <p class="category">Las imágenes de cada una de las categorías</p>
+          </div>
+          <div class="content table-responsive table-full-width">
+            <%if @galleries.empty?  %>
+              <div class="alert alert-warning">
+                  <span><b> Alerta - </b> No existen imágenes</span>
+              </div>
+            <% else %>
 
-<h1>Galleries</h1>
+            <div class="content">
+              <div class="row">
+                <% @galleries.each do |gallery| %>
 
-<table>
+                    <div class="col-xs-4">
+                      <div class="card">
+                        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                              <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                  <%= image_tag("FOTO 1.jpg", class: "carousel-gallery") %> 
+                                </div>
+                                <div class="carousel-item">
+                                  <%= image_tag("FOTO 2.jpg", class: "carousel-gallery") %> 
+                                </div>
+                                <div class="carousel-item">
+                                  <%= image_tag("FOTO 3.jpg", class: "carousel-gallery") %> 
+                                </div>
+                                <div class="carousel-item">
+                                  <%= image_tag("FOTO 4.jpg", class: "carousel-gallery") %> 
+                                </div>
+                                <div class="carousel-item">
+                                  <%= image_tag("FOTO 5.jpg", class: "carousel-gallery") %> 
+                                </div>
+                                <div class="carousel-item">
+                                  <%= image_tag("FOTO 6.jpg", class: "carousel-gallery") %> 
+                                </div>
+                                <div class="carousel-item">
+                                  <%= image_tag("FOTO 7.jpg", class: "carousel-gallery") %> 
+                                </div>
+                              </div>
+                              <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                              </a>
+                              <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                              </a>
+                            </div>
+
+                        <div class="card-body">
+                          <h4 class="card-title"><%= gallery.model %></h4>
+                          <p class="card-text">
+                            <%= gallery.status %>
+                          </p>
+                           <%= link_to 'Show', gallery, class: "btn btn-info btn-fill" %>
+                           <%= link_to 'Edit', edit_gallery_path(gallery), class: "btn btn-info btn-fill" %>
+                           <%= link_to 'Destroy', gallery, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-info btn-fill" %>
+                        </div>
+                      </div>
+                    </div>
+                
+                <% end %>
+
+              </div>
+            </div>
+              <table>
   <thead>
     <tr>
       <th>Image</th>
@@ -25,7 +93,11 @@
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Gallery', new_gallery_path %>
+            <% end %>
+            <%= link_to 'New Gallery', new_gallery_path, class: "btn btn-info btn-fill btn-wd" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

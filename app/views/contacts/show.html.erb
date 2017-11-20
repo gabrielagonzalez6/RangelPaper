@@ -1,0 +1,65 @@
+
+<div class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-8">
+        <div class="card">
+          <div class="header">
+              <h4 class="title">Datos del cliente</h4>
+          </div>
+          <div class="content">
+              <ul class="list-unstyled team-members">
+                <li>
+                    <div class="row">
+                        <div class="col-xs-6">
+                            Nombre
+                            <br />
+                            <span class="text-primary"><small> <%= @contact.name %></small></span>
+                        </div>
+
+                        <div class="col-xs-6">
+                            Apellido
+                            <br />
+                            <span class="text-primary"><small> <%= @contact.lastname %></small></span>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="row">
+                        <div class="col-xs-6">
+                            Teléfono
+                            <br />
+                            <span class="text-primary"><small> <%= @contact.phone %></small></span>
+                        </div>
+
+                        <div class="col-xs-6">
+                            E-mail
+                            <br />
+                            <span class="text-primary"><small> <%= @contact.email %></small></span>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            Mensaje
+                            <br />
+                            <span class="text-primary"><small> <%= @contact.message %></small></span>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <%= link_to 'Back', contacts_path, class: "btn btn-info btn-fill" %>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

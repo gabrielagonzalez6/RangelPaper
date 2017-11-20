@@ -1,0 +1,58 @@
+<div class="container">
+  	<div class="row">
+    	<div class="col-md-4">
+    		<%= render 'contacts/form', contact: @contact %>
+    	</div>
+    
+    	<div class="col-md-8">
+    		<h5 class="form-title">PREGUNTAS FRECUENTES</h5>
+
+    		<div class="QandA">
+	    		<div class="card-QandA">
+				    <div class="card-header-QandA" role="tab" id="headingTwo">
+				      <div class="card-QandA-tab">
+				        <a class="card-QandA-title" data-toggle="collapse" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+				        	<div class="backgroud-fa-plus">
+				        		<i class="fa fa-plus fa-fw custom" aria-hidden="true"></i>
+				        	</div>
+				          	Collapsible Group Item #2
+				        </a>
+				      </div>
+				    </div>
+
+				    <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo" data-parent="#accordion">
+				      <div class="card-body-QandA">
+				        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+				      </div>
+				    </div>
+				  </div>
+
+	    		<% @questions.each do |question| %>
+
+					<div id="accordion" role="tablist" style="margin-top: 20px;" >
+					  <div class="card-QandA">
+					    
+						    <div class="card-header-QandA" role="tab" id="heading<%= question.id %>">
+						      <div class="card-QandA-tab">
+						        <a class="card-QandA-title" data-toggle="collapse" href="#collapse<%= question.id %>" aria-expanded="true" aria-controls="collapse<%= question.id %>">
+						        	<div class="backgroud-fa-plus">
+						        		<i class="fa fa-plus fa-fw custom" aria-hidden="true"></i>
+						        	</div>
+						          	<%= question.question %>
+						        </a>
+						      </div>
+						    </div>
+
+						    <div id="collapse<%= question.id %>" class="collapse" role="tabpanel" 
+						    		aria-labelledby="heading<%= question.id %>" data-parent="#accordion">
+						      <div class="card-body-QandA">
+						        <%= question.answer %>
+						      </div>
+						    </div>
+					  	</div>
+					 </div>
+				 <% end %>	
+			</div>
+ 		</div>
+  	</div>
+</div>

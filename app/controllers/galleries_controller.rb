@@ -1,6 +1,8 @@
 class GalleriesController < ApplicationController
   before_action :set_gallery, only: [:show, :edit, :update, :destroy]
 
+  layout 'admin'
+
   # GET /galleries
   # GET /galleries.json
   def index
@@ -26,6 +28,16 @@ class GalleriesController < ApplicationController
   def create
     @gallery = Gallery.new(gallery_params)
 
+    if @gallery.image.present?
+      uploaded_io = params[:gallery][:image]
+      File.open(Rails.root.join('app/assets', 'images', uploaded_io.original_filename), 'wb') do |file|
+        file.write(uploaded_io.read)
+      end
+
+      @gallery.image = uploaded_io.original_filename
+      puts @gallery.image
+    end
+
     respond_to do |format|
       if @gallery.save
         format.html { redirect_to @gallery, notice: 'Gallery was successfully created.' }
@@ -40,6 +52,18 @@ class GalleriesController < ApplicationController
   # PATCH/PUT /galleries/1
   # PATCH/PUT /galleries/1.json
   def update
+
+    @gallery = Gallery.find(params[:id])
+
+    if @gallery.image.present?
+      uploaded_io = params[:gallery][:image]
+      File.open(Rails.root.join('app/assets', 'images', uploaded_io.original_filename), 'wb') do |file|
+        file.write(uploaded_io.read)
+      end
+
+      @gallery.image = uploaded_io.original_filename
+    end
+
     respond_to do |format|
       if @gallery.update(gallery_params)
         format.html { redirect_to @gallery, notice: 'Gallery was successfully updated.' }
@@ -69,6 +93,6 @@ class GalleriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def gallery_params
-      params.require(:gallery).permit(:image, :status, :model_id)
+      params.require(:gallery).permit({image: []}, :status, :model_id)
     end
 end

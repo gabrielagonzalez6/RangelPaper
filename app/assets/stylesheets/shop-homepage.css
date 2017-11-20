@@ -9,10 +9,6 @@
     src: url("/assets/Winter_Calligraphy.ttf") format("truetype");
 }
 
-body {
-    padding-top: 10px;
-}
-
 @media (min-width: 992px) {
     body {
         padding-top: 10px;
@@ -50,13 +46,6 @@ p.card-main-title {
     color: rgb(161, 161, 162)
 }
 
-/*img.card-main-icon {
-    margin-top: 50px;
-    width: 40px;
-    height: 40px;
-}
-*/
-
 img.card-main-icon {
     position: absolute;
     margin-top: 7px;
@@ -72,7 +61,7 @@ img.card-main-icon {
     border-radius: 100px;
     width: 55px;
     height: 55px;
-    margin-top: 60px;
+    margin-top: 40px;
 }
 
 p.card-main-pink {
@@ -81,6 +70,7 @@ p.card-main-pink {
     margin-left: 63px;
     margin-top: -50px;
     color: #fe51bb;
+    font-weight: bold;
 }
 
 p.card-main-gray {
@@ -89,19 +79,78 @@ p.card-main-gray {
     margin-left: 63px;
     margin-bottom: auto;
     margin-right: 5px;
-    font-size: smaller;
-    color: rgb(161, 161, 162)
+    font-size: x-small;
+    color: rgb(161, 161, 162);
 }
 
-/* Carousel */
+/* Carousel Home*/
 img.carousel-img {
     width: 100%;
     height: 420px;
 }
 
 
-/* ---- FOOTER ---- */
+/* ---- HEADER ---- */
+img.logo-header {
+    width: 100%;
+    /* height: 125px; */
+}
 
+/* Car's panel */
+.card-header-car {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+        flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #f0efef;
+    background-clip: border-box;
+    border: 1px solid #f0efef;
+    border-radius: 0.25rem;
+    max-width: 240px;
+    min-height: 110px;
+    margin: auto;
+    margin-top: 15px;
+    margin-bottom: 20px;
+    padding: 0;
+}
+
+img.card-header-icon {
+    height: 60px;
+    width: 60px;
+    margin-left: 25px;
+    margin-top: 18px;
+}
+
+.mycontent-left {
+    border-right: 1px dashed rgb(161, 161, 162);
+    margin-left: 10px;
+    margin-top: 19px;
+}
+
+p.card-header-pink {
+    font-family: my car;
+    font-size: x-large;
+    color: #fe51bb;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 15px;
+    margin-left: 20px;
+}
+
+p.card-header-grey {
+    font-size: large;
+    color: rgb(161, 161, 162);
+    text-align: center;
+    margin: auto;
+    margin-top: 10px;
+    margin-left: 20px;
+}
+
+
+/* ---- FOOTER ---- */
 footer.py-footer {
     position: relative;
     display: -ms-flexbox;
@@ -111,7 +160,7 @@ footer.py-footer {
     background-repeat-y: no-repeat;
     background-position: top;
     background-color: #00d0ce;
-    height: 196px;
+    min-height: 196px;
 }
 
 footer.py-footerpink {
@@ -121,10 +170,9 @@ footer.py-footerpink {
 
 p.part1footer {
     color: white;
-    position: absolute;
     font-size: 15px;
     line-height: 150%;
-    padding-top: 20px;
+    padding-top: 50px;
 }
 
 p.m-0.text-center.text-white {
@@ -133,7 +181,6 @@ p.m-0.text-center.text-white {
 
 
 /* ---- MENU ---- */
-
 a.dropdown-item {
     color: white;
     font-size: 15px;
@@ -146,46 +193,216 @@ a.dropdown-item {
 }
 
 
-/* ---- HEADER ---- */
+/* ---- FORMS ---- */
+.form {
+    margin-bottom: 30px;
+}
 
-.cardHeader {
+h5.form-title {
+    color: #fe51bb;
+    font-weight: 900;
+}
+
+p.form-p {
+    font-size: initial;
+    font-weight: 900;
+    color: white;
+    background: #00d0ce;
+    min-height: 40px;
+    width: 100%;
+    margin-top: 20px;
+    margin-left: auto;
+    line-height: 1.25;
+    padding-left: 10px;
+    padding-top: 12px;
+    border-radius: 0.25rem;
+}
+
+strong.form-label {
+    color: red;
+    font-size: x-large;
+}
+
+.field {
+    color: rgb(161, 161, 162);
+    font-size: initial;
+    font-weight: 900;
+}
+
+.form-input {
+    display: block;
+    width: 100%;
+    max-width: 400px;
+    box-sizing: border-box;
+    padding: 0.5rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.25;
+    color: rgb(161, 161, 162);
+    background-color: #f0efef;
+    background-image: none;
+    background-clip: padding-box;
     border: 1px solid #f0efef;
     border-radius: 0.25rem;
-    background-color: #f0efef;
-    text-align: center;
+    transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+}
+
+.alert-success {
+    color: white;
+    background-color: #fe51bb;
+    border-color: #fe51bb;
+}
+
+.form-input::-webkit-input-placeholder {
+  color: rgb(161, 161, 162);
+  opacity: 0.5;
+}
+
+.form-input:-ms-input-placeholder {
+  color: rgb(161, 161, 162);
+  opacity: 0.5;
+}
+
+.form-input::placeholder {
+  color: rgb(161, 161, 162);
+  opacity: 0.5;
+}
+
+/* ---- CATEGORY'S PANEL ---- */
+.card-category {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+        flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fe51bb;
+    background-clip: border-box;
+    border: 1px solid #fe51bb;
+    border-radius: 0.25rem;
+    max-width: 240px;
     margin: auto;
-    margin-top: 10px;
-    margin-left: 35px;
-    width: 240px;
-    height: 90px;
+    margin-top: 15px;
+    margin-bottom: 20px;
+    padding: 0;
 }
 
-.panel-body-header {
-    margin: auto;
-    margin-top: 10px;
-    position: absolute;
-}
-
-.mycontent-left {
-    border-right: 1px dashed rgb(161, 161, 162);;
-    margin-left: 10px;
-    padding-right: 15px;
-}
-
-.my-car {
-    color: #fe51bb;
-    font-size: x-large;
+p.card-category-title {
     font-family: my car;
-    width: 120px;
-    left: 105px;
-    top: 15px;
-    position: absolute;
+    font-size: x-large;
+    color: white;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 10px;
 }
 
-.count {
-    margin-left: 0px;
-    margin-top: 10px;
-    font-size: large;
+ul.card-category-list {
+    color: white;
+    font-size: medium;
+    line-height: 200%;
+    padding: 0;
+    margin-left: 20px;
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 100%;
+}
+
+hr.card-category-divider {
+    border-color: white;
+    border-style: dashed;
+}
+
+
+/* ---- QUESTION'S PANEL ---- */
+.QandA {
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+.card-QandA {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+        flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #00d0ce;
+    background-clip: border-box;
+    /*border: 1px solid #00d0ce;*/
+    border-radius: 0.25rem;
+    margin-bottom: -12px;
+}
+
+.card-body-QandA {
+    -ms-flex: 1 1 auto;
+        flex: 1 1 auto;
+    padding: 1.25rem;
     color: rgb(161, 161, 162);
-    font-family: -webkit-body;
+    background-color: white;
+    border-color: white;
+    text-align: justify;
+}
+
+a.card-QandA-title {
+    color: white;
+    font-size: initial;
+    font-weight: 900;
+    line-height: 40px;
+    margin-left: 40px;
+}
+a.card-QandA-title:hover  {
+    color: white;
+    text-decoration: none;
+    background-color: transparent;
+}
+
+.card-QandA-tab {
+    min-height: 40px;
+}
+
+.backgroud-fa-plus {
+    position: absolute;
+    background: #fe51bb;
+    background-attachment: fixed;
+    background-clip: content-box;
+    border-radius: 100px;
+    width: 20px;
+    height: 20px;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+i.fa.fa-plus.fa-fw.custom {
+    position: absolute;
+    margin-top: 4px;
+    margin-left: 1px;
+    font-size: small;
+}
+
+/* ----  LOGIN'S PANEL ---- */
+
+.card-header-login {
+    padding: 0.75rem 1.25rem;
+    margin-bottom: 0;
+    background-color: #00d0ce;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+p.login-p {
+    font-family: my car;
+    font-size: 22px;
+    color: white;
+    min-height: 20px;
+    /* padding: 0; */
+    margin: 0 auto;
+    padding-top: 5px;
+}
+
+/* ----  GALLERY  ---- */
+
+/* Carousel Gallery */
+img.carousel-gallery {
+    width: 100%;
+    height: 250px;
 }

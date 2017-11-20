@@ -1,0 +1,74 @@
+<div class="sidebar" data-background-color="white" data-active-color="danger">
+    <!--
+		Tip 1: you can change the color of the sidebar's background using: data-background-color="white | black"
+		Tip 2: you can change the color of the active button using the data-active-color="primary | info | success | warning | danger"
+	-->
+    <div class="sidebar-wrapper">
+            <div class="logo">
+                <%= image_tag("LOGO.jpg", class: "logo-header") %>
+            </div>
+
+            <ul class="nav">
+                <li>
+                    <%= link_to admin_home_index_url do %>
+                        <i class="ti-home"></i>
+                        <p>Inicio</p>
+                    <% end %>
+                </li>
+                <li class="active">
+                    <%= link_to new_profile_url do %>
+                        <i class="ti-user"></i>
+                        <p>Perfil</p>
+                    <% end %>
+                </li>
+                <li>
+                    <%= link_to orders_url do %>
+                        <i class="fa fa-book"></i>
+                        <p>Pedidos</p>
+                    <% end %>
+                </li>
+                <li>
+                    <%= link_to contacts_path do %>
+                        <i class="ti-comment-alt"></i>
+                        <p>Contactos</p>
+                    <% end %>
+                </li>
+                <li>
+                    <%= link_to events_path do %>
+                        <i class="fa fa-gift"></i>
+                        <p>Eventos</p>
+                    <% end %>
+                </li>
+                <li>
+                    <%= link_to categories_path do %>
+                        <i class="ti-menu-alt"></i>
+                        <p>Categorías</p>
+                    <% end %>
+                </li>
+                <li>
+                    <%= link_to models_path do %>
+                        <i class="fa fa-bookmark"></i>
+                        <p>Modelo</p>
+                    <% end %>
+                </li>
+                <li>
+                    <%= link_to galleries_path do %>
+                        <i class="ti-gallery"></i>
+                        <p>Galeria</p>
+                    <% end %>
+                </li>
+                <li>
+                    <%= link_to questions_path do %>
+                        <i class="fa fa-question-circle"></i>
+                        <p>Preguntas Frecuentes</p>
+                    <% end %>
+                </li>
+				<li >
+                    <%= link_to destroy_user_session_path, :method => :delete do %>
+                        <i class="fa fa-sign-out"></i>
+                        <p>Cerrar Sesión</p>
+                    <% end %>
+                </li>
+            </ul>
+    </div>
+</div>

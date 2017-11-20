@@ -1,0 +1,33 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  order: MyString
+  theme: MyString
+  color: MyString
+  name: MyString
+  string: MyString
+  age: 1
+  date_event: 2017-11-19
+  date_order: 2017-11-19
+  city: MyString
+  name_shipping: MyString
+  dni_shipping: MyString
+  phone_shipping: MyString
+  address_shipping: MyText
+  more_info: MyText
+
+two:
+  order: MyString
+  theme: MyString
+  color: MyString
+  name: MyString
+  string: MyString
+  age: 1
+  date_event: 2017-11-19
+  date_order: 2017-11-19
+  city: MyString
+  name_shipping: MyString
+  dni_shipping: MyString
+  phone_shipping: MyString
+  address_shipping: MyText
+  more_info: MyText

@@ -1,32 +1,55 @@
-<%= form_for(social_network) do |f| %>
-  <% if social_network.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(social_network.errors.count, "error") %> prohibited this social_network from being saved:</h2>
 
-      <ul>
-      <% social_network.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+ <div class="content">
+    <%= form_for(social_network) do |f| %>
+
+      <% if social_network.errors.any? %>
+        <div id="error_explanation">
+          <div class="alert alert-danger">
+            <span><b> Error - </b> </span>
+            <ul>
+            <% social_network.errors.messages.values.each do |message| %>
+              <% message.each do |m| %>
+                <li><%= m %></li>
+              <% end %>
+            <% end %>
+            </ul>
+          </div> 
+        </div>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
 
-  <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name %>
+          <div class="row">
+              <div class="col-md-6">
+                  <div class="form-group">
+                      <div class="field">
+                        <label>Nombre o Usuario <strong class="form-label">*</strong></label>
+                        <%= f.text_field :name, placeholder: "rangelpaper", class: "form-control border-input" %>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-md-6">
+                  <div class="form-group">
+                      <div class="field">
+                        <label>Red Social <strong class="form-label">*</strong></label>
+                        <%= f.text_field :sn_type, placeholder: "Instagram", class: "form-control border-input" %>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="row">
+              <div class="col-md-6">
+                  <div class="form-group">
+                      <div class="field">
+                        <label>Perfil</label>
+                        <%= f.text_field :profile_id, class: "form-control border-input" %>
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+          <div class="actions text-center">
+            <%= f.submit "Guardar", class: "btn btn-info btn-fill btn-wd" %>
+          </div>
+
+        <% end %>
   </div>
 
-  <div class="field">
-    <%= f.label :type %>
-    <%= f.text_field :type %>
-  </div>
-
-  <div class="field">
-    <%= f.label :profile_id %>
-    <%= f.text_field :profile_id %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>

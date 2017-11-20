@@ -1,6 +1,18 @@
-<h1>Editing Model</h1>
+<div class="content">
+	<div class="container-fluid">
+	 	<div class="row">
+	    	<div class="col-lg-8 col-md-7">
+	      		<div class="card">
+		              <div class="header">
+		                  <h4 class="title">Editar Modelo</h4>
+		              </div>
+						<%= render 'form', model: @model %>
 
-<%= render 'form', model: @model %>
+						<%= link_to 'Show', @model, class: "btn btn-info btn-fill" %>
+						<%= link_to 'Back', models_path, class: "btn btn-info btn-fill"%>
 
-<%= link_to 'Show', @model %> |
-<%= link_to 'Back', models_path %>
+				</div>
+	    	</div>
+	 	 </div>
+	</div>
+</div>

@@ -1,6 +1,8 @@
 class ModelsController < ApplicationController
   before_action :set_model, only: [:show, :edit, :update, :destroy]
 
+  layout 'admin'
+
   # GET /models
   # GET /models.json
   def index
@@ -28,7 +30,7 @@ class ModelsController < ApplicationController
 
     respond_to do |format|
       if @model.save
-        format.html { redirect_to @model, notice: 'Model was successfully created.' }
+        format.html { redirect_to @model, notice: 'Modelo registrado exitosamente.' }
         format.json { render :show, status: :created, location: @model }
       else
         format.html { render :new }
@@ -42,7 +44,7 @@ class ModelsController < ApplicationController
   def update
     respond_to do |format|
       if @model.update(model_params)
-        format.html { redirect_to @model, notice: 'Model was successfully updated.' }
+        format.html { redirect_to @model, notice: 'Modelo modificado exitosamente.' }
         format.json { render :show, status: :ok, location: @model }
       else
         format.html { render :edit }
@@ -56,7 +58,7 @@ class ModelsController < ApplicationController
   def destroy
     @model.destroy
     respond_to do |format|
-      format.html { redirect_to models_url, notice: 'Model was successfully destroyed.' }
+      format.html { redirect_to models_url, notice: 'Modelo eliminado exitosamente.' }
       format.json { head :no_content }
     end
   end
@@ -69,6 +71,6 @@ class ModelsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def model_params
-      params.require(:model).permit(:name, :description, :even_categ_id)
+      params.require(:model).permit(:name, :description, :category_id)
     end
 end

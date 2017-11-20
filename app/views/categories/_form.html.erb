@@ -1,27 +1,54 @@
-<%= form_for(category) do |f| %>
-  <% if category.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(category.errors.count, "error") %> prohibited this category from being saved:</h2>
+<div class="content">
+  <%= form_for(category) do |f| %>
+    
+    <% if category.errors.any? %>
+      <div id="error_explanation">
+        <div class="alert alert-danger">
+          <span><b> Error - </b> </span>
+          <ul>
+          <% category.errors.messages.values.each do |message| %>
+            <% message.each do |m| %>
+              <li><%= m %></li>
+            <% end %>
+          <% end %>
+          </ul>
+        </div> 
+      </div>
+    <% end %>
 
-      <ul>
-      <% category.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <div class="field">
+                  <label>Nombre <strong class="form-label">*</strong></label>
+                  <%= f.text_field :name, placeholder: "Invitaciones Infantiles", class: "form-control border-input" %>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <div class="field">
+                  <label>Descripción <strong class="form-label">*</strong></label>
+                  <%= f.text_area :description, placeholder: "Tarjetas personalizadas para los invitados de fiestas infantiles.", class: "form-control border-input" %>
+                </div>
+            </div>
+        </div>
     </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <div class="field">
+                  <label>Evento <strong class="form-label">*</strong></label>
+                  <%= f.collection_select :event_id, Event.all, :id, :name, {:prompt => "- Seleccionar -"}, {:class=>"form-control border-input"} %>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="actions text-center">
+      <%= f.submit "Guardar", class: "btn btn-info btn-fill btn-wd" %>
+    </div>
+
   <% end %>
-
-  <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-  </div>
-
-  <div class="field">
-    <%= f.label :description %>
-    <%= f.text_area :description %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>

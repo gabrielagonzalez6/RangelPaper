@@ -1,0 +1,151 @@
+<div class="content">
+  <%= form_for(order) do |f| %>
+    
+    <% if order.errors.any? %>
+      <div id="error_explanation">
+        <div class="alert alert-danger">
+          <span><b> Error - </b> </span>
+          <ul>
+          <% order.errors.messages.values.each do |message| %>
+            <% message.each do |m| %>
+              <li><%= m %></li>
+            <% end %>
+          <% end %>
+          </ul>
+        </div> 
+      </div>
+    <% end %>
+
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+                <div class="field">
+                  <label>Pedido <strong class="form-label">*</strong></label>
+                  <%= f.text_field :order, placeholder: "Invitaciones Infantiles", class: "form-control border-input" %>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <div class="field">
+                  <label>Temática <strong class="form-label">*</strong></label>
+                  <%= f.text_field :theme, placeholder: "Frozen", class: "form-control border-input" %>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <div class="field">
+                  <label>Colores a usar <strong class="form-label">*</strong></label>
+                  <%= f.text_field :color, placeholder: "Azul, Plateado y Blanco", class: "form-control border-input" %>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-4">
+            <div class="form-group">
+                <div class="field">
+                  <label>Nombre y Apellido del homenajeado <strong class="form-label">*</strong></label>
+                  <%= f.text_field :name, placeholder: "Daniela Marquina", class: "form-control border-input" %>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <div class="field">
+                  <label>Edad <strong class="form-label">*</strong></label>
+                  <%= f.number_field :age, placeholder: "10", class: "form-control border-input" %>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <div class="field">
+                  <label>Ciudad donde te encuentras <strong class="form-label">*</strong></label>
+                  <%= f.text_field :city, placeholder: "Caracas", class: "form-control border-input" %>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-group">
+                <div class="field">
+                  <label>Más información sobre el pedido </label>
+                  <%= f.text_area :more_info, placeholder: "Otras especificaciones del pedido.", class: "form-control border-input" %>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <div class="field">
+                  <label>Fecha del evento <strong class="form-label">*</strong></label>
+                  <br>
+                  <%= f.date_select :date_event, class: "form-control border-input" %>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <div class="field">
+                  <label>Fecha en la que se necesita el pedido <strong class="form-label">*</strong></label>
+                  <br>
+                  <%= f.date_select  :date_order, class: "input-group date" %>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="">
+        <h5 class="title">Datos de Envío</h5>
+        <br>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+                <div class="field">
+                  <label>Nombre y Apellido</label>
+                  <%= f.text_field :name_shipping, placeholder: "Patricia Vega", class: "form-control border-input" %>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <div class="field">
+                  <label>Nro. Cédula</label>
+                  <%= f.text_field :dni_shipping, placeholder: "13.515.423", class: "form-control border-input" %>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <div class="field">
+                  <label>Teléfono</label>
+                  <%= f.text_field :phone_shipping, placeholder: "04141408941", class: "form-control border-input" %>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-group">
+                <div class="field">
+                  <label>Dirección de envío </label>
+                  <%= f.text_area :address_shipping, placeholder: "Especificar si es dirección particular o agencia MRV, Zoom o Domesa.", class: "form-control border-input" %>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="actions text-center">
+      <%= f.submit "Guardar", class: "btn btn-info btn-fill btn-wd" %>
+    </div>
+  <% end %>

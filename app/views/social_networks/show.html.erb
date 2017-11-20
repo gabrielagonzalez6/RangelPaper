@@ -1,19 +1,42 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @social_network.name %>
-</p>
-
-<p>
-  <strong>Type:</strong>
-  <%= @social_network.type %>
-</p>
-
-<p>
-  <strong>Profile:</strong>
-  <%= @social_network.profile %>
-</p>
-
-<%= link_to 'Edit', edit_social_network_path(@social_network) %> |
-<%= link_to 'Back', social_networks_path %>
+<div class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-8">
+        <div class="card">
+          <div class="header">
+              <h4 class="title">Datos de la Pregunta</h4>
+          </div>
+          <div class="content">
+              <ul class="list-unstyled team-members">
+                <li>
+                    <div class="row">
+                        <div class="col-xs-6">
+                            Nombre o Usuario
+                            <br />
+                            <span class="text-primary"><small> <%= @social_network.name %></small></span>
+                        </div>
+                        <div class="col-xs-6">
+                            Descripción
+                            <br />
+                            <span class="text-primary"><small> <%= @social_network.sn_type  %></small></span>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="row">
+                    	<div class="col-xs-6">
+                            <%= link_to 'Edit', edit_social_network_path(@social_network), class: "btn btn-info btn-fill" %>
+                        </div>
+                        <div class="col-xs-6">
+                           <%= link_to 'Back', social_networks_path, class: "btn btn-info btn-fill" %>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

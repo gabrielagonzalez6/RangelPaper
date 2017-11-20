@@ -3,7 +3,7 @@ class CreateProfiles < ActiveRecord::Migration[5.0]
     create_table :profiles do |t|
       t.string :name
       t.string :lastname
-      t.integer :phone
+      t.string :phone
       t.string :email
       t.text :address
       t.string :city

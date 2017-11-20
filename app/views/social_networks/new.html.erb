@@ -1,5 +1,17 @@
-<h1>New Social Network</h1>
+<div class="content">
+	<div class="container-fluid">
+	 	<div class="row">
+	    	<div class="col-lg-8 col-md-7">
+	      		<div class="card">
+		              <div class="header">
+		                  <h4 class="title">Nueva Red Social</h4>
+		              </div>
+						<%= render 'form', social_network: @social_network %>
 
-<%= render 'form', social_network: @social_network %>
+						<%= link_to 'Back', social_networks_path, class: "btn btn-info btn-fill" %>
 
-<%= link_to 'Back', social_networks_path %>
+				</div>
+	    	</div>
+	 	 </div>
+	</div>
+</div>

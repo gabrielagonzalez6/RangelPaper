@@ -1,31 +1,47 @@
-<p id="notice"><%= notice %></p>
 
-<h1>Models</h1>
+<div class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="header">
+            <h4 class="title">Modelo</h4>
+            <p class="category">Los modelos para cada evento con su categoria</p>
+          </div>
+          <div class="content table-responsive table-full-width">
+            <%if @models.empty?  %>
+              <div class="alert alert-warning">
+                  <span><b> Alerta - </b> No existen modelos</span>
+              </div>
+            <% else %>
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>Nombre</th>
+                    <th>Descripción</th>
+                    <th>Categoría</th>
+                    <th colspan="3">Acción</th>
+                  </tr>
+                </thead>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Even categ</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @models.each do |model| %>
-      <tr>
-        <td><%= model.name %></td>
-        <td><%= model.description %></td>
-        <td><%= model.even_categ %></td>
-        <td><%= link_to 'Show', model %></td>
-        <td><%= link_to 'Edit', edit_model_path(model) %></td>
-        <td><%= link_to 'Destroy', model, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Model', new_model_path %>
+                <tbody>
+                  <% @models.each do |model| %>
+                    <tr>
+                      <td><%= model.name %></td>
+                      <td><%= model.description %></td>
+                      <td><%= model.category.name %></td>
+                      <td><%= link_to 'Show', model, class: "btn btn-info btn-fill" %></td>
+                      <td><%= link_to 'Edit', edit_model_path(model), class: "btn btn-info btn-fill" %></td>
+                      <td><%= link_to 'Destroy', model, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-info btn-fill" %></td>
+                    </tr>
+                  <% end %>
+                </tbody>
+              </table>
+            <% end %>
+            <%= link_to 'New Model', new_model_path, class: "btn btn-info btn-fill" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

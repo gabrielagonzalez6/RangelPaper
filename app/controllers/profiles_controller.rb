@@ -1,6 +1,8 @@
 class ProfilesController < ApplicationController
   before_action :set_profile, only: [:show, :edit, :update, :destroy]
 
+  layout 'admin'
+
   # GET /profiles
   # GET /profiles.json
   def index
@@ -15,10 +17,12 @@ class ProfilesController < ApplicationController
   # GET /profiles/new
   def new
     @profile = Profile.new
+    @social_networks = SocialNetwork.all
   end
 
   # GET /profiles/1/edit
   def edit
+     @social_networks = SocialNetwork.all
   end
 
   # POST /profiles
@@ -42,7 +46,7 @@ class ProfilesController < ApplicationController
   def update
     respond_to do |format|
       if @profile.update(profile_params)
-        format.html { redirect_to @profile, notice: 'Profile was successfully updated.' }
+        format.html { redirect_to @profile, notice: 'Perfil modificado exitosamente.' }
         format.json { render :show, status: :ok, location: @profile }
       else
         format.html { render :edit }

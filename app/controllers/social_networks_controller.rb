@@ -1,6 +1,8 @@
 class SocialNetworksController < ApplicationController
   before_action :set_social_network, only: [:show, :edit, :update, :destroy]
 
+  layout 'admin'
+  
   # GET /social_networks
   # GET /social_networks.json
   def index
@@ -28,7 +30,7 @@ class SocialNetworksController < ApplicationController
 
     respond_to do |format|
       if @social_network.save
-        format.html { redirect_to @social_network, notice: 'Social network was successfully created.' }
+        format.html { redirect_to @social_network, notice: 'Red Social registrada exitosamente.' }
         format.json { render :show, status: :created, location: @social_network }
       else
         format.html { render :new }
@@ -42,7 +44,7 @@ class SocialNetworksController < ApplicationController
   def update
     respond_to do |format|
       if @social_network.update(social_network_params)
-        format.html { redirect_to @social_network, notice: 'Social network was successfully updated.' }
+        format.html { redirect_to @social_network, notice: 'Red Social modificada exitosamente.' }
         format.json { render :show, status: :ok, location: @social_network }
       else
         format.html { render :edit }
@@ -56,7 +58,7 @@ class SocialNetworksController < ApplicationController
   def destroy
     @social_network.destroy
     respond_to do |format|
-      format.html { redirect_to social_networks_url, notice: 'Social network was successfully destroyed.' }
+      format.html { redirect_to social_networks_url, notice: 'Red Social eliminada exitosamente.' }
       format.json { head :no_content }
     end
   end
@@ -69,6 +71,6 @@ class SocialNetworksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def social_network_params
-      params.require(:social_network).permit(:name, :type, :profile_id)
+      params.require(:social_network).permit(:name, :sn_type, :profile_id)
     end
 end

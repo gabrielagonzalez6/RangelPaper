@@ -1,42 +1,52 @@
 <!-- Footer -->
     <footer class="py-footer">
       <div class="container">
-        <div class="col-md-6">
-          <p class="part1footer"> 
-            Rangel Paper 
-            <br>
-            &nbsp;
-            <i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;&nbsp;Address: Isla de Margarita - Venezuela
-            <br>
-            &nbsp;
-            <i class="fa fa-phone" aria-hidden="true"></i> &nbsp;Phone: +58 426.787.60.99
-            <br>
-            &nbsp;
-            <i class="fa fa-envelope" aria-hidden="true"></i> Email: rangelpaper@gmail.com
-          </p>
-        </div>
-        <!-- <div class="col-md-3">
-          <p class="part2footer"> 
-            Rangel Paper 
-            <br>
-            &nbsp;
-            <i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;&nbsp;Address: Isla de Margarita - Venezuela
-            <br>
-            &nbsp;
-            <i class="fa fa-phone" aria-hidden="true"></i> &nbsp;Phone: +58 426.787.60.99
-            <br>
-            &nbsp;
-            <i class="fa fa-envelope" aria-hidden="true"></i> Email: rangelpaper@gmail.com
-          </p>
-        </div> -->
-        <div class="col-md-3">
+        <div class="row">
+          <div class="col-md-6">
+            <p class="part1footer"> 
+              Rangel Paper 
+              <br>
+            
+              <i class="fa fa-map-marker fa-fw" aria-hidden="true"></i>
+              Address: Isla de Margarita - Venezuela
+              <br>
+   
+              <i class="fa fa-phone fa-fw" aria-hidden="true"></i>
+              Phone: +58 426.787.60.99
+              <br>
+       
+              <i class="fa fa-envelope fa-fw" aria-hidden="true"></i>
+              Email: rangelpaper@gmail.com
+            </p>
+          </div>
+          <div class="col-md-4">
+            <p class="part1footer"> 
+              Información
+              <br>
+             
+              <%= link_to new_contact_path, class: "text-white" do %>
+                <i class="fa fa-phone fa-fw" aria-hidden="true"></i> Contacto
+              <% end %>
+              <br>
+              
+              <%= link_to home_Q_and_A_url, class: "text-white" do %>
+                <i class="fa fa-info fa-fw" aria-hidden="true"></i> Preguntas Frecuentes
+              <% end %>
+              <br>
+             
+              <i class="fa fa-download fa-fw" aria-hidden="true"></i> 
+              Imprimibles
+            </p>
+          </div>
+          <div class="col-md-3">
+          </div>
         </div>
       </div>
       <!-- /.container -->
     </footer>
     <footer class="py-footerpink">
       <div class="container">
-        <p class="m-0 text-center text-white">Copyright &copy; Rangel Paper. Todos los derechos reservados</p>
+        <p class="m-0 text-center text-white">Rangel Paper. Todos los derechos reservados</p>
       </div>
       <!-- /.container -->
     </footer>

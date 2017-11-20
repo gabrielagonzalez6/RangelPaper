@@ -10,22 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170927201328) do
+ActiveRecord::Schema.define(version: 20171119170101) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
+    t.integer  "event_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.index ["event_id"], name: "index_categories_on_event_id"
   end
 
-  create_table "even_categs", force: :cascade do |t|
-    t.integer  "event_id"
-    t.integer  "category_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.index ["category_id"], name: "index_even_categs_on_category_id"
-    t.index ["event_id"], name: "index_even_categs_on_event_id"
+  create_table "contacts", force: :cascade do |t|
+    t.string   "name"
+    t.string   "lastname"
+    t.string   "phone"
+    t.string   "email"
+    t.text     "message"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "events", force: :cascade do |t|
@@ -35,7 +38,7 @@ ActiveRecord::Schema.define(version: 20170927201328) do
   end
 
   create_table "galleries", force: :cascade do |t|
-    t.string   "image"
+    t.text     "image"
     t.boolean  "status"
     t.integer  "model_id"
     t.datetime "created_at", null: false
@@ -46,16 +49,34 @@ ActiveRecord::Schema.define(version: 20170927201328) do
   create_table "models", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
-    t.integer  "even_categ_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
-    t.index ["even_categ_id"], name: "index_models_on_even_categ_id"
+    t.integer  "category_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["category_id"], name: "index_models_on_category_id"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.string   "order"
+    t.string   "theme"
+    t.string   "color"
+    t.string   "name"
+    t.integer  "age"
+    t.date     "date_event"
+    t.date     "date_order"
+    t.string   "city"
+    t.string   "name_shipping"
+    t.string   "dni_shipping"
+    t.string   "phone_shipping"
+    t.text     "address_shipping"
+    t.text     "more_info"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
   end
 
   create_table "profiles", force: :cascade do |t|
     t.string   "name"
     t.string   "lastname"
-    t.integer  "phone"
+    t.string   "phone"
     t.string   "email"
     t.text     "address"
     t.string   "city"
@@ -66,9 +87,16 @@ ActiveRecord::Schema.define(version: 20170927201328) do
     t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 
+  create_table "questions", force: :cascade do |t|
+    t.text     "question"
+    t.text     "answer"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "social_networks", force: :cascade do |t|
     t.string   "name"
-    t.string   "type"
+    t.string   "sn_type"
     t.integer  "profile_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

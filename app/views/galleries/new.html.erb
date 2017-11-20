@@ -1,5 +1,18 @@
-<h1>New Gallery</h1>
 
-<%= render 'form', gallery: @gallery %>
+<div class="content">
+	<div class="container-fluid">
+	 	<div class="row">
+	    	<div class="col-lg-8 col-md-7">
+	      		<div class="card">
+		              <div class="header">
+		                  <h4 class="title">Nueva Galeria</h4>
+		              </div>
+						<%= render 'form', gallery: @gallery %>
 
-<%= link_to 'Back', galleries_path %>
+						<%= link_to 'Back', galleries_path , class: "btn btn-info btn-fill" %>
+
+				</div>
+	    	</div>
+	 	 </div>
+	</div>
+</div>

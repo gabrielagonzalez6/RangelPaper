@@ -4,6 +4,11 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 
+$(document).on("ready page:change", function() {
+    $('.form-input').tooltip();
+});
+
+ 
 if (typeof jQuery === 'undefined') {
   throw new Error('Bootstrap\'s JavaScript requires jQuery. jQuery must be included before Bootstrap\'s JavaScript.')
 }

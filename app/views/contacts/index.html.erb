@@ -1,0 +1,54 @@
+
+<div class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="header">
+            <h4 class="title">Mensajes de Contactos</h4>
+            <p class="category">Personas que enviaron su mensaje desde la sección: Contacto</p>
+          </div>
+          <div class="content table-responsive table-full-width">
+            <%if @contacts.empty?  %>
+              <div class="alert alert-warning">
+                  <span><b> Alerta - </b> No hay mensajes de contacto</span>
+              </div>
+            <% else %>
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Teléfono</th>
+                    <th>E-mail</th>
+                    <th>Mensaje</th>
+                    <th colspan="2">Acción</th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                  <% @contacts.each do |contact| %>
+                    <tr>
+                      <td><%= contact.name %></td>
+                      <td><%= contact.lastname %></td>
+                      <td><%= contact.phone %></td>
+                      <td><%= contact.email %></td>
+                      <td><%= contact.message %></td>
+                      <td><%= link_to 'Show', contact, class: "btn btn-info btn-fill" %></td>
+                      <td><%= link_to 'Destroy', contact, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-info btn-fill"  %></td>
+                    </tr>
+                  <% end %>
+                </tbody>
+              </table>
+            <% end %>
+            <%= link_to 'New Contact', new_contact_path, class: "btn btn-info btn-fill" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
