@@ -1,5 +1,5 @@
   <div class="content">
-      <%= form_for @gallery, url: gallery_image_path(@gallery), method: :post do |f| %>
+      <%= form_for gallery, html: { multipart: true } do |f| %>
           <% if gallery.errors.any? %>
             <div id="error_explanation">
               <div class="alert alert-danger">
@@ -18,10 +18,14 @@
           <div class="row">
               <div class="col-md-6">
                   <div class="form-group">
-                      <div class="field">
-                        <label>Seleccionar Imágenes <strong class="form-label">*</strong></label>
-                        <%= f.file_field :image, multiple: true %>
-                      </div>
+                      
+                      <%= f.fields_for :gallery_images do |p| %>
+                        <div class="field">
+                          <label>Seleccionar Imágenes <strong class="form-label">*</strong></label>
+                          <%= p.file_field :image, :multiple => true, name: "gallery_images[image][]" %>
+                        </div>
+                      <% end %>
+                  
                   </div>
               </div>
 

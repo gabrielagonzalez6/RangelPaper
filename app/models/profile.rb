@@ -12,7 +12,7 @@ class Profile < ApplicationRecord
 
 	validates :phone,
 			  presence: { message: "Introduzca el número" },
-			  format: {with: /\A\+?\d{2}[- ]?\d{3}[- ]?\d{7}\z/, message: "Teléfono contiene caracteres inválidos"},
+			  format: {with: /\A[\s()+-]*([0-9][\s()+-]*){6,20}\z/, message: "Teléfono contiene caracteres inválidos"},
 			  length: { minimum: 7, maximum: 13, :message => "Número no valido" }
 
 	validates :email,

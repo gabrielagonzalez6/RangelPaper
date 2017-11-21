@@ -1536,9 +1536,13 @@ textarea.form-control {
     .card .footer hr {
       margin-top: 5px;
       margin-bottom: 5px; }
-  .card .stats {
+  .card .stats 
+  {
     color: #a9a9a9;
-    font-weight: 300; }
+    font-weight: 300;
+    margin: 20px;
+    text-align: end; 
+  }
     .card .stats i {
       margin-right: 2px;
       min-width: 15px;

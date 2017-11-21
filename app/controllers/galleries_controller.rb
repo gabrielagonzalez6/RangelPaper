@@ -7,16 +7,19 @@ class GalleriesController < ApplicationController
   # GET /galleries.json
   def index
     @galleries = Gallery.all
+    @gallery_images = GalleryImage.all
   end
 
   # GET /galleries/1
   # GET /galleries/1.json
   def show
+    @gallery_images = GalleryImage.where(gallery_id: params[:id])
   end
 
   # GET /galleries/new
   def new
     @gallery = Gallery.new
+    @gallery_images = @gallery.gallery_images.build
   end
 
   # GET /galleries/1/edit
@@ -28,19 +31,14 @@ class GalleriesController < ApplicationController
   def create
     @gallery = Gallery.new(gallery_params)
 
-    if @gallery.image.present?
-      uploaded_io = params[:gallery][:image]
-      File.open(Rails.root.join('app/assets', 'images', uploaded_io.original_filename), 'wb') do |file|
-        file.write(uploaded_io.read)
-      end
-
-      @gallery.image = uploaded_io.original_filename
-      puts @gallery.image
-    end
-
     respond_to do |format|
       if @gallery.save
-        format.html { redirect_to @gallery, notice: 'Gallery was successfully created.' }
+        
+        params[:gallery_images]['image'].each do |a|
+          @gallery_images = @gallery.gallery_images.create!(:image => a,     :gallery_id => @gallery.id)
+       end
+
+        format.html { redirect_to @gallery, notice: 'Galeria creada exitosamente.' }
         format.json { render :show, status: :created, location: @gallery }
       else
         format.html { render :new }
@@ -52,17 +50,6 @@ class GalleriesController < ApplicationController
   # PATCH/PUT /galleries/1
   # PATCH/PUT /galleries/1.json
   def update
-
-    @gallery = Gallery.find(params[:id])
-
-    if @gallery.image.present?
-      uploaded_io = params[:gallery][:image]
-      File.open(Rails.root.join('app/assets', 'images', uploaded_io.original_filename), 'wb') do |file|
-        file.write(uploaded_io.read)
-      end
-
-      @gallery.image = uploaded_io.original_filename
-    end
 
     respond_to do |format|
       if @gallery.update(gallery_params)
@@ -80,7 +67,7 @@ class GalleriesController < ApplicationController
   def destroy
     @gallery.destroy
     respond_to do |format|
-      format.html { redirect_to galleries_url, notice: 'Gallery was successfully destroyed.' }
+      format.html { redirect_to galleries_url, notice: 'Galeria eliminada exitosamente.' }
       format.json { head :no_content }
     end
   end
@@ -93,6 +80,6 @@ class GalleriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def gallery_params
-      params.require(:gallery).permit({image: []}, :status, :model_id)
+      params.require(:gallery).permit(:status, :model_id, gallery_images_attributes: [:id, :gallery_id, :image])
     end
 end

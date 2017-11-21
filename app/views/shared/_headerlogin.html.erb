@@ -8,8 +8,22 @@
     <div class="col-sm text-center">
         <p>
           <h3 style="color: #fe51bb;margin-top: 50px;">!Hola!</h3>
-          <%= link_to home_login_url do %>
-            <h6 style="color: rgb(161, 161, 162)">Crear Cuenta | Accesar</h6>
+          <% if current_user %>
+            
+            <% if current_user.email == 'ggm.gaby06@gmail.com' %>
+              <%= link_to admin_home_index_url do %>
+                <h6 style="color: rgb(161, 161, 162)"> Acceder a Admin </h6>
+              <% end %>
+            <% end %>
+
+            <%= link_to destroy_user_session_path, :method => :delete do %>
+              <h6 style="color: rgb(161, 161, 162)"> <%= current_user.email %> | Cerrar Sesión </h6>
+            <% end %>
+
+          <% else %>
+            <%= link_to home_login_url do %>
+              <h6 style="color: rgb(161, 161, 162)">Crear Cuenta | Accesar</h6>
+            <% end %>
           <% end %>
         </p>
     </div>

@@ -5,27 +5,23 @@
 
           <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
-              <div class="carousel-item active">
-                <%= image_tag("FOTO 1.jpg", class: "carousel-img") %> 
-              </div>
-              <div class="carousel-item">
-                <%= image_tag("FOTO 2.jpg", class: "carousel-img") %> 
-              </div>
-              <div class="carousel-item">
-                <%= image_tag("FOTO 3.jpg", class: "carousel-img") %> 
-              </div>
-              <div class="carousel-item">
-                <%= image_tag("FOTO 4.jpg", class: "carousel-img") %> 
-              </div>
-              <div class="carousel-item">
-                <%= image_tag("FOTO 5.jpg", class: "carousel-img") %> 
-              </div>
-              <div class="carousel-item">
-                <%= image_tag("FOTO 6.jpg", class: "carousel-img") %> 
-              </div>
-              <div class="carousel-item">
-                <%= image_tag("FOTO 7.jpg", class: "carousel-img") %> 
-              </div>
+              <% @gallery_images.each_with_index do |i, index| %>
+                <% if @gallery_images.empty? %>
+                  <div class="carousel-item active">
+                    <%= image_tag("FOTO 1.jpg", class: "carousel-img") %> 
+                  </div>
+                <% else %>
+                  <% if index == 0 %>
+                    <div class="carousel-item active">
+                      <%= image_tag(i.image.url, class: "carousel-img") %> 
+                    </div>
+                  <% else %>
+                    <div class="carousel-item">
+                      <%= image_tag(i.image.url, class: "carousel-img") %> 
+                    </div>
+                  <% end %>
+                <% end %>
+              <% end %>
             </div>
             <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
               <span class="carousel-control-prev-icon" aria-hidden="true"></span>

@@ -18,6 +18,7 @@ class ProfilesController < ApplicationController
   def new
     @profile = Profile.new
     @social_networks = SocialNetwork.all
+    @user = User.find_by(email: current_user.email)
   end
 
   # GET /profiles/1/edit
@@ -32,7 +33,7 @@ class ProfilesController < ApplicationController
 
     respond_to do |format|
       if @profile.save
-        format.html { redirect_to @profile, notice: 'Profile was successfully created.' }
+        format.html { redirect_to edit_profile_path(@profile), notice: 'Profile was successfully created.' }
         format.json { render :show, status: :created, location: @profile }
       else
         format.html { render :new }
@@ -46,7 +47,7 @@ class ProfilesController < ApplicationController
   def update
     respond_to do |format|
       if @profile.update(profile_params)
-        format.html { redirect_to @profile, notice: 'Perfil modificado exitosamente.' }
+        format.html { redirect_to edit_profile_path(@profile), notice: 'Perfil modificado exitosamente.' }
         format.json { render :show, status: :ok, location: @profile }
       else
         format.html { render :edit }

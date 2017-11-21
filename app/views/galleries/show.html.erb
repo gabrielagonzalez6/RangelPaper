@@ -1,22 +1,55 @@
-<p id="notice"><%= notice %></p>
+<div class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-8">
+        <div class="card">
+          <div class="header">
+              <h4 class="title">Datos de la Galeria</h4>
+          </div>
+          <div class="content">
+              <ul class="list-unstyled team-members">
+                <li>
+                    <div class="row">
+                        <div class="col-xs-4">
+                            Modelo
+                            <br />
+                            <span class="text-primary"><small> <%= @gallery.model.name %></small></span>
+                        </div>
+                    </div>
+                </li>
 
-<p>
-  <strong>Image:</strong>
-  <%= @gallery.image.each_with_index do |i, index| %>
-  	<%= image_tag(i.url) %>
-  	<%= link_to "Delete", gallery_image_path(@gallery, index), :method => :delete, data: { confirm: "Are you sure you want to delete this image?" } %>
-  <% end %>
-</p>
+                <%if @gallery_images.empty? || @gallery_images == nil %>
+	              <div class="alert alert-warning">
+	                  <span><b> Alerta - </b> No existen imágenes</span>
+	              </div>
+	            <% else %>
+	                <%= @gallery_images.each_with_index do |i, index| %>
+		                <li>
+		                    <div class="row">
+		                        <div class="col-xs-4">
+		                          <%= image_tag(i.image.url, size: "100x100") %>
+		                          <%= link_to 'Destroy', i, method: :delete, data: { confirm: '¿Desea eliminar la imagen?' } %>
+		                        </div>
+		                    </div>
+		                </li>
+		            <% end %>
+	            <% end %>
+                <li>
+                    <div class="row">
+                    	<div class="col-xs-6">
+                            <%= link_to 'Agregar Imagen', {:controller => "gallery_images", :action => "new", :id_gallery => @gallery.id }, class: "btn btn-info btn-fill" %>
+                        </div> 
 
-<p>
-  <strong>Status:</strong>
-  <%= @gallery.status %>
-</p>
+                        <div class="col-xs-6">
+                            <%= link_to 'Back', galleries_path, class: "btn btn-info btn-fill" %>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-<p>
-  <strong>Model:</strong>
-  <%= @gallery.model %>
-</p>
-
-<%= link_to 'Edit', edit_gallery_path(@gallery) %> |
-<%= link_to 'Back', galleries_path %>

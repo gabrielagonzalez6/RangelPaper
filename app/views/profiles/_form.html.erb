@@ -9,18 +9,13 @@
             <div class="content">
                 <div class="author">
                 
-                  <h4 class="title">Chet Faker<br />
-                      <a href="#"><small>@chetfaker</small></a>
+                  <h4 class="title"><%= current_user.name %> <%= current_user.lastname %><br />
+                      <a href="#"><small><%= current_user.email %></small></a>
                   </h4>
                 </div>
-                <p class="description text-center">
-                                    "I like the way you work it <br>
-                                    No diggity <br>
-                                    I wanna bag it up"
-                </p>
             </div>
         </div>
-        <div class="card">
+        <!-- <div class="card">
             <div class="header">
                 <h4 class="title">Redes Sociales</h4>
             </div>
@@ -29,7 +24,7 @@
               <%= render template: "social_networks/index" %>
 
             </div>
-        </div>
+        </div> -->
       </div>
       <div class="col-lg-8 col-md-7">
           <div class="card">
@@ -59,7 +54,8 @@
                               <div class="form-group">
                                   <div class="field">
                                     <label>Nombre</label>
-                                    <%= f.text_field :name, class: "form-control border-input" %>
+                                    <%= f.text_field :name, value: current_user.name,
+                                      class: "form-control border-input" %>
                                   </div>
                               </div>
                           </div>
@@ -67,7 +63,7 @@
                               <div class="form-group">
                                   <div class="field">
                                     <label>Apellido</label>
-                                    <%= f.text_field :lastname, class: "form-control border-input" %>
+                                    <%= f.text_field :lastname, value: current_user.lastname, class: "form-control border-input" %>
                                   </div>
                               </div>
                           </div>
@@ -78,42 +74,34 @@
                               <div class="form-group">
                                   <div class="field">
                                     <label>E-mail</label>
-                                    <%= f.text_field :email, class: "form-control border-input" %>
+                                    <%= f.text_field :email, value: current_user.email, class: "form-control border-input" %>
                                   </div>
                               </div>
                           </div>
                           <div class="col-md-6">
                               <div class="form-group">
                                   <div class="field">
-                                    <label>Contraseña</label>
-                                    
+                                    <label>Teléfono</label>
+                                    <%= f.text_field :phone, placeholder: "04141408941", class: "form-control border-input" %>
                                   </div>
                               </div>
                           </div>
                       </div>
 
                       <div class="row">
-                          <div class="col-md-4">
-                              <div class="form-group">
-                                  <div class="field">
-                                    <label>Teléfono</label>
-                                    <%= f.text_field :phone, class: "form-control border-input" %>
-                                  </div>
-                              </div>
-                          </div>
-                          <div class="col-md-4">
+                          <div class="col-md-6">
                               <div class="form-group">
                                   <div class="field">
                                     <label>Ciudad</label>
-                                    <%= f.text_field :city, class: "form-control border-input" %>
+                                    <%= f.text_field :city, placeholder: "Caracas", class: "form-control border-input" %>
                                   </div>
                               </div>
                           </div>
-                          <div class="col-md-4">
+                          <div class="col-md-6">
                               <div class="form-group">
                                   <div class="field">
                                     <label>País</label>
-                                    <%= f.text_field :country, class: "form-control border-input" %>
+                                    <%= f.text_field :country, placeholder: "Av. Ginebra", class: "form-control border-input" %>
                                   </div>
                               </div>
                           </div>
@@ -130,9 +118,8 @@
                           </div>
                       </div>
 
-                      <div class="field">
-                        <%= f.label :user_id %>
-                        <%= f.text_field :user_id %>
+                      <div class="hidden">
+                        <%= f.text_field :user_id, value: current_user.id %>
                       </div>
 
                       <div class="actions text-center">

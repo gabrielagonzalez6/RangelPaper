@@ -17,82 +17,52 @@
             <div class="content">
               <div class="row">
                 <% @galleries.each do |gallery| %>
+                  <div class="col-xs-4">
+                    <div class="card">
 
-                    <div class="col-xs-4">
-                      <div class="card">
-                        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-                              <div class="carousel-inner">
+                        <div id="carouselExampleControls<%= gallery.id %>" class="carousel slide" data-ride="carousel">
+                          <div class="carousel-inner">
+                            <% @gallery_images.where(:gallery_id => gallery.id).each_with_index do |i, index| %>
+
+                              <% if index == 0 %>
                                 <div class="carousel-item active">
-                                  <%= image_tag("FOTO 1.jpg", class: "carousel-gallery") %> 
+                                  <%= image_tag(i.image.url, class: "carousel-gallery") %> 
                                 </div>
+                              <% else %>
                                 <div class="carousel-item">
-                                  <%= image_tag("FOTO 2.jpg", class: "carousel-gallery") %> 
+                                  <%= image_tag(i.image.url, class: "carousel-gallery") %> 
                                 </div>
-                                <div class="carousel-item">
-                                  <%= image_tag("FOTO 3.jpg", class: "carousel-gallery") %> 
-                                </div>
-                                <div class="carousel-item">
-                                  <%= image_tag("FOTO 4.jpg", class: "carousel-gallery") %> 
-                                </div>
-                                <div class="carousel-item">
-                                  <%= image_tag("FOTO 5.jpg", class: "carousel-gallery") %> 
-                                </div>
-                                <div class="carousel-item">
-                                  <%= image_tag("FOTO 6.jpg", class: "carousel-gallery") %> 
-                                </div>
-                                <div class="carousel-item">
-                                  <%= image_tag("FOTO 7.jpg", class: "carousel-gallery") %> 
-                                </div>
-                              </div>
-                              <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="sr-only">Previous</span>
-                              </a>
-                              <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="sr-only">Next</span>
-                              </a>
-                            </div>
-
-                        <div class="card-body">
-                          <h4 class="card-title"><%= gallery.model %></h4>
-                          <p class="card-text">
-                            <%= gallery.status %>
-                          </p>
-                           <%= link_to 'Show', gallery, class: "btn btn-info btn-fill" %>
-                           <%= link_to 'Edit', edit_gallery_path(gallery), class: "btn btn-info btn-fill" %>
-                           <%= link_to 'Destroy', gallery, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-info btn-fill" %>
+                              <% end %>
+                      
+                            <% end %>
+                          </div>
+                          <a class="carousel-control-prev" href="#carouselExampleControls<%= gallery.id %>" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                          </a>
+                          <a class="carousel-control-next" href="#carouselExampleControls<%= gallery.id %>" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                          </a>
                         </div>
+           
+
+                      <div class="card-body">
+                        <h4 class="card-title">Modelo: <%= gallery.model %></h4>
+                        <!-- <p class="card-text">
+                          <%= gallery.status %>
+                        </p> -->
+                         <%= link_to 'Show', gallery, class: "btn btn-info btn-fill" %>
+                         <%= link_to 'Destroy', gallery, method: :delete, data: { confirm: '¿Desea eliminar la galeria?' }, class: "btn btn-info btn-fill" %>
                       </div>
                     </div>
+                  </div>
                 
                 <% end %>
 
               </div>
             </div>
-              <table>
-  <thead>
-    <tr>
-      <th>Image</th>
-      <th>Status</th>
-      <th>Model</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @galleries.each do |gallery| %>
-      <tr>
-        <td><%= gallery.image %></td>
-        <td><%= gallery.status %></td>
-        <td><%= gallery.model %></td>
-        <td><%= link_to 'Show', gallery %></td>
-        <td><%= link_to 'Edit', edit_gallery_path(gallery) %></td>
-        <td><%= link_to 'Destroy', gallery, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+            
             <% end %>
             <%= link_to 'New Gallery', new_gallery_path, class: "btn btn-info btn-fill btn-wd" %>
           </div>
