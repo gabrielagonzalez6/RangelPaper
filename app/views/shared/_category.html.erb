@@ -9,8 +9,12 @@
           </p>
           <hr class="card-category-divider">
           <ul class="card-category-list">
-            <% @categories.each do |categories| %>
-                <li><%= categories.name %></li>
+            <%if @categories.empty?  %>
+              <li> </li>
+            <% else %>
+              <% @categories.each do |categories| %>
+                  <li><%= categories.name %></li>
+              <% end %>
             <% end %>
           </ul>  
         

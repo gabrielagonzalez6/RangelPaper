@@ -8,8 +8,12 @@
 		              </div>
 						<%= render 'form', model: @model %>
 
-						<%= link_to 'Show', @model, class: "btn btn-info btn-fill" %>
-						<%= link_to 'Back', models_path, class: "btn btn-info btn-fill"%>
+						<hr/>
+						<div class="text-center">
+							<%= link_to 'Ver', @model, class: "btn btn-info btn-fill" %>
+							<%= link_to 'Regresar', models_path, class: "btn btn-info btn-fill"%>
+						</div>
+						<br>
 
 				</div>
 	    	</div>

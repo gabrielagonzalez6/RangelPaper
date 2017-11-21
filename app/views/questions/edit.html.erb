@@ -8,8 +8,13 @@
 		              </div>
 						<%= render 'form', question: @question %>
 
-						<%= link_to 'Show', @question, class: "btn btn-info btn-fill" %> 
-						<%= link_to 'Back', questions_path, class: "btn btn-info btn-fill" %>
+						<hr/>
+						<div class="text-center">
+							<%= link_to 'Ver', @question, class: "btn btn-info btn-fill" %> 
+							<%= link_to 'Regresar', questions_path, class: "btn btn-info btn-fill" %>
+						</div>
+						<br>
+						
 				</div>
 	    	</div>
 	 	 </div>
