@@ -16,9 +16,9 @@
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                 <%= link_to "INFANTILES", home_childish_url, class: "dropdown-item" %>
-                <a class="dropdown-item" href="#">ADULTOS</a>
-                <a class="dropdown-item" href="#">BODA</a>
-                <a class="dropdown-item" href="#">OTROS EVENTOS</a>
+                <%= link_to "ADULTOS", home_adult_url, class: "dropdown-item" %>
+                <%= link_to "BODA", home_wedding_url, class: "dropdown-item" %>
+                <%= link_to "OTROS EVENTOS", home_others_url, class: "dropdown-item" %>
               </div>
             </li>
             <li class="nav-item dropdown">
@@ -26,15 +26,15 @@
                 DETALLES Y COMPLEMENTOS
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <a class="dropdown-item" href="#">RECUERDITOS</a>
-                <a class="dropdown-item" href="#">REGALOS DE SALIDA</a>
-                <a class="dropdown-item" href="#">CAJITAS/BOLSITAS</a>
-                <a class="dropdown-item" href="#">COMPLEMENTOS</a>
-                <a class="dropdown-item" href="#">ARTICULOS DE MADERA</a>
+                <%= link_to "RECUERDITOS", home_memories_url, class: "dropdown-item" %>
+                <%= link_to "REGALOS DE SALIDA", home_gifts_url, class: "dropdown-item" %>
+                <%= link_to "CAJITAS/BOLSITAS", home_boxes_url, class: "dropdown-item" %>
+                <%= link_to "COMPLEMENTOS", home_accessories_url, class: "dropdown-item" %>
+                <%= link_to "ARTICULOS DE MADERA", home_articles_url, class: "dropdown-item" %>
               </div>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">IMPRIMIBLES</a>
+              <%= link_to "IMPRIMIBLES", home_printable_url, class: "nav-link" %>
             </li>
             <li class="nav-item">
               <%= link_to "CONTACTO", new_contact_path, class: "nav-link" %>

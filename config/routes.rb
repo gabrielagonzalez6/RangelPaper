@@ -8,6 +8,15 @@ Rails.application.routes.draw do
   get 'home/Q_and_A', to: 'home#Q_and_A'
   get 'home/login', to: 'home#login'
   get 'home/childish', to: 'home#childish'
+  get 'home/printable', to: 'home#printable'
+  get 'home/accessories', to: 'home#accessories'
+  get 'home/articles', to: 'home#articles'
+  get 'home/adult', to: 'home#adult'
+  get 'home/boxes', to: 'home#boxes'
+  get 'home/gifts', to: 'home#gifts'
+  get 'home/memories', to: 'home#memories'
+  get 'home/others', to: 'home#others'
+  get 'home/wedding', to: 'home#wedding'
 
   resources :galleries do
     resources :images, :only => [:create, :destroy] # support #create and #destroy
